@@ -39,8 +39,8 @@ function App() {
 
 
 
-
-            {itens.map(item => {
+             //itens? condição caso for undefined nao executara o map.
+            {itens?.map(item => {
                 return <div className="item" key={item.id}>
 
                     <span>NOME: {item.razao}</span>
@@ -48,6 +48,8 @@ function App() {
                     <span>ATIVO: {item.ativo}</span>
                 </div>
             })}
+             // condição caso resultado nao existir retornar aviso ao ususario
+            {itens === undefined ? <h3>Nenhum resuldo encontrado, tente novamente</h3> : '' }
 
             <Pagination
                 pages={pages}
